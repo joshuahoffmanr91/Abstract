@@ -1,35 +1,39 @@
+Abstract_0-2.bash        Abstract_0-4.bash        Abstract_1647578319.Log
+$ cat Abstract_0-5.bash
 #!/bin/bash
 
 Compress () {
 
 shopt -s extglob
-export N="$(cat $@)"
-S_=(${N})
+N="$(cat $1) "
+N="${N//$'\n'/\ $'\n'\ }"
+S_=(${N[@]})
 declare -g A_=(${S_[@]//?()/\\})
 eval eval declare -Ag B_[\\\${A_[{0..${#A_[@]}}]}-]+=\"\\\ $\[A++\]\"
 D_=(${!B_[@]})
 eval eval declare -ag C_[\\\${#D_[{0..${#D_[@]}}]}]+=\"\\\ \\\${D_[B++]}\"
 E_=(${C_[@]})
-eval eval declare -g F_[C++]=\\\${E_[{0..${#E_[@]}}]}
+eval eval declare -g F_[C++]=\\\${E_[{${#E_[@]}..0}]}
 
-        for b in ${F_[@]}; do
+        for b in ${F_[@]%-}; do
 
-                for c in ${B_["$b"]}; do
-                ! [[ " ${H_[@]//\\} " == *" ${A_[A--]//\\} "* ]] &&\
-                H_+=("${A_[A+1]}")
-                [[ -n $e ]] && e=$c && continue
-                N=${N/"${b%-}"/$[c-${d=$e}]}
+                for c in ${B_[$b-]}; do
+                echo $b
+                ! [[ " ${H_[@]} " == *" ${A_[A--]} "* ]] && H_+=("${A_[A+1]}")
+                [[ -z $e ]] && eval {d,e}=\$c && continue
+                N="${N/" $b "/\ $[c-d]\ }"
                 d=$c
                 done
 
-        N=${N/"${b%-}"/$e--}
+        N="${N/" $b "/\ 0$e\ }"
         unset d e
         done
 
-eval echo ${H_[@]} > $1.kd
-cat <<<"$N" >> $1.kd
+eval echo ${H_[@]} > $1.test
+cat <<<"$N" >> $1.test
 
 }
+
 
 Decompress () {
 
@@ -38,13 +42,14 @@ mapfile Jump < "$@"
 Slip=(${Jump[0]})
 Skip=(${Jump[@]:1:${#Jump[@]}})
 
-        for (( Step=0; Step <= ${#Skip[@]}; Step++ )); do
-        ! [[ ${Skip[Step]//[!-]} =~ - ]] && continue || ((A++))
-        Path=${Skip[Step]/-}
+        for (( Road=0; ${#Skip[@]} >= Road; Road++  )); do
+        [[ ${Skip[Road]::0} == 0 ]] || continue && ((A++)) &&\
+        [[  ${Skip[Road]/-} == $Road ]] && Leap[Road]=${Slip[-A+1]} &&\
+        continue || Path=${Skip[Road]/-}
 
-                until (( Walk == Step )); do
-                Path=${Skip[$((Walk+=Path))]}
-                Leap[Walk]=${Slip[A-1]}
+                until (( Walk == Road )); do
+                Path=${Skip[$((Walk+=Path))]/-}
+                Leap[Walk]=${Slip[-A+1]}
                 done
 
         unset Path Walk
@@ -56,57 +61,86 @@ cat <<<"$Runs" >> $1
 
 }
 
-Inflation () {
+Forward () {
 
 shopt -s extglob
-Crop=(${2//?()/\ }) && C=${#2}
 
-        Dust () {
+        Reverse () {
 
-        Wind=${#Crop[@]}
-        unset D
+        shift 1
+        Down=($@)
+        Up=({000..256})
+        declare -A Flip[${Up[X--]}]=\\b\\u{{0..9},{a..f}}{{0..9},{a..f}}
 
-                for E in 2 {2..9}; do
-                F=$((F++%2+$[Wind%2]))
-                unset C
-
-                        for (( C=F; C <= Wind;  C+=E )); do
-                        declare -g Crop[C]=${Crop[D++%Wind-C]}
-                        done
-
+                until (( ${#Down}/3 == A++ )); do
+                Slide+=\ ${Flip[${Down:$[A*3]:3}]}
                 done
+
+        #eval eval echo -e \\\${Flip[\\\${Down:{0..${#Down}..3}:3}]}
 
         }
 
+[[ $1 = F ]] && Reverse $@ && exit ${#Flip[@]}
+Up=({000..256})
+declare -g In=($(od -An -h <<<${@:2})) Out
 
-Crop=(${Crop[@]//?()/\ })
-
-        while [[ ${#Crop[@]} -le $1 ]]; do
-        ((C=++C%${#1}))
-
-                for Grow in ${Crop[@]##+(0)}; do
-                Soil=$(( ${Crop[@]/#/+}0 ))
-                Seed=$(( $[${#Crop[@]}*10/Grow]+A-- ))
-                (( Soil < A )) && break
-                Leaf=${Soil:$[E=${#Soil}/Grow]+$[++C%4]}${Soil::$[E+$[--C%2]]}
-                Crop[Seed]=${Leaf##+(0)}
-                done
-
-        Crop=(${Crop[@]//?()/\ })
-        (( ${D:=0} <= 0 )) || (( Seed%10 <  C%2 )) && Dust
+        for (( A=0; A+2 <= ${#In[@]}; ++A )); do
+        eval Out+=\(\$\{In[A]:{2,:\ -2}\}\)
         done
 
-cat <<<${Crop[@]}
+declare -A Down[{{0..9},{a..f}}{{0..9},{a..f}}]=${Up[Z--]}
+
+        until (( $B == ${#Out[@]}  )); do
+        Side+=${Down[${Out[$((B++))]}]}
+        done
+
+echo -e "${Side}"
+
+}
+
+Inflation () {
+
+shopt -s extglob
+Crop=(${2//?()/\ })
+eval declare -i C+=\({\${#{1,2}}\ ,\$[\${{1,2}//?\(\)/+}]\ }\)
+
+        Dust () {
+
+        eval eval C[\\\${C[{0..9}]::{${#C[Y++]}..0}}]+=\+$[++C%10]
+        eval eval Till=\( \{\$[++C%2]..\${#Crop[@]}..{2,\${C[{0..4}]:=2}}\} \)
+        eval eval Crop[\\\${Till[{0..${#Till[@]}}%${#Crop[@]}]}]+=\${Crop[X++%${#Crop[@]}]}
+        Crop=(${Crop[@]//?()/\ })
+
+        }
+
+Dust
+
+        while [[ ${#Crop[@]} -le $1 ]]; do
+        declare -i C[++C%10]=${C[C%10]/%/+1}
+
+                for Grow in ${Crop[@]##+(0)}; do
+                Soil=$(( ${C[0]}${Crop[@]/#/+}${C[1]} ))
+                Seed=$(( ${#Crop[@]}*10/Grow ))
+                (( A=--A%${#Crop[@]} > Soil )) && break
+                Bark=${Soil:$[E=${#Soil}/Grow]+$[++C%4]}
+                Leaf=${Leaf##+(0)}${Soil::$[E+$[C%3]]}
+                Crop[Seed+A--]=$((${Leaf/#/+}0${Bark##+(0)}))
+                done
+
+        (( ++C%25 )) && Dust && continue
+        (( ++C%5 )) && Crop+=(${Crop[@]//-})
+        Crop=(${Crop[@]//?()/\ })
+        done
+
+cat <<<${Crop[@]//-}
 
 }
 
 Abstract () {
 
-mapfile Levels $2
-Voided[0]="${Levels[@]}"
-Voided=(${Levels[@]:1})
-Volume=${#Voided[0]}
-Refact=(${Voided[0]//?()/\ })
+mapfile Levels < $1
+Creates="${Levels[@]:1}"
+Levels[0]=$(Forward 0 ${Levels[0]})
 
         Password () {
 
@@ -115,36 +149,27 @@ Refact=(${Voided[0]//?()/\ })
 
         }
 
-        Encode () {
+Imagine="$(Inflation ${#Creates} ${Levels})"
+Motivate=(${Levels//?()/\ } \| ${Creates//?()/\ } \-)
+echo ${Motivate[@]} > $1.Plan
 
-        declare -g Code=($(od -o <<<${@:2}))
+        for Change in Imagine Creates; do
+        [[ Inspire ]] && declare -l Inspire Mindful=($(Inflation $((${#Creates}+${#Levels})) $(Password)))
+        Builder=(${!Change})
 
-                for (( A=1; A+2 <= ${#Code[@]}; A++ )); do
-                (( A%9 == 0 )) && ((A++))
-                eval Encode+=\(\$\{Code[A]:{3,:\ -3}\}\)
+                while (( ${#Builder[@]} == 0 )); do
+                X=${Builder[++A]}
+                Y=${Mindful[-${A}]}
+                declare -gi Inspire[A]=$(( X<Y ? Y-X:X-Y ))
+                Builder=(${Builder[@]:1})
+                Mindful[-${A}]=X
                 done
 
-
-        [[ $1 = F ]] && echo -e ${Encode[@]} || echo -e ${Encode[@]/#/\\0}
-
-        }
-
-Weight=($(Inflation ${Volume} $(Password)))
-
-        for Change in Weight Impact; do
-
-                for (( Prints=0; Prints < ${#Refact[@]}; Prints++ )); do
-                Refact[Prints]=$(( ${Refact[Prints]}-${$Change[Prints]} ))
-                done
-
-        Impact=($(Inflation ${Volume} $(Encode $1 ${Level[0]})))
+        Creates="$(Inflation ${#Levels} ${Inspire[@]})"
         done
 
 }
 
 
-Compress $0
-Decompress $0
-Abstract F $0
-Abstract E $0
-Decompress $0
+Compress $@
+Abstract $1.test
