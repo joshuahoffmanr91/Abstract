@@ -1,5 +1,3 @@
-Abstract_0-2.bash        Abstract_0-4.bash        Abstract_1647578319.Log
-$ cat Abstract_0-5.bash
 #!/bin/bash
 
 Compress () {
