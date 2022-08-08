@@ -1,0 +1,88 @@
+Thirteen
+
+One
+One Two
+One Two Three
+One Two Three Four
+One Two Three Four Five
+One Two Three Four Five Six
+One Two Three Four Five Six Seven
+One Two Three Four Five Six Seven Eight
+One Two Three Four Five Six Seven Eight Nine
+One Two Three Four Five Six Seven Eight Nine Ten
+Two Three Four Five Six Seven Eight Nine Ten
+Three Four Five Six Seven Eight Nine Ten
+Four Five Six Seven Eight Nine Ten
+Five Six Seven Eight Nine Ten
+Six Seven Eight Nine Ten
+Seven Eight Nine Ten
+Eight Nine Ten
+Nine Ten
+Ten
+One
+Eleven Twelve
+One
+Eleven Twelve
+Ten
+
+ One
+ One Two
+ One Two Three
+ One Two Three Four
+ One Two Three Four Five
+ One Two Three Four Five Six
+ One Two Three Four Five Six Seven
+ One Two Three Four Five Six Seven Eight
+ One Two Three Four Five Six Seven Eight Nine
+ One Two Three Four Five Six Seven Eight Nine Ten
+ Two Three Four Five Six Seven Eight Nine Ten
+ Three Four Five Six Seven Eight Nine Ten
+ Four Five Six Seven Eight Nine Ten
+ Five Six Seven Eight Nine Ten
+ Six Seven Eight Nine Ten
+ Seven Eight Nine Ten
+ Eight Nine Ten
+ Nine Ten
+ Ten
+ One
+ Eleven Twelve
+ One
+ Eleven Twelve
+ Ten
+
+ Red Orange Yellow Green Blue Purple Red
+ Red Orange Yellow Green Blue Purple Red Orange
+ Red Orange Yellow Green Blue Purple Red Orange Yellow
+ Red Orange Yellow Green Blue Purple Red Orange Yellow Green
+ Red Orange Yellow Green Blue Purple Red Orange Yellow Green Blue
+ Red Orange Yellow Green Blue Purple Red Orange Yellow Green Blue Purple
+ Red Orange Yellow Green Blue Purple Red Orange Yellow Green Blue Purple
+ Red Orange Yellow Green Blue Purple Red Orange Yellow Green Blue
+ Red Orange Yellow Green Blue Purple Red Orange Yellow Green
+ Red Orange Yellow Green Blue Purple Red Orange Yellow
+ Red Orange Yellow Green Blue Purple Red Orange
+ Red Orange Yellow Green Blue Purple Red
+ Red
+ Red Orange
+ Red Orange Yellow
+ Red Orange Yellow Green
+ Red Orange Yellow Green Blue
+ Red Orange Yellow Green Blue Purple
+ Red Orange Yellow Green Blue Purple
+ Red Orange Yellow Green Blue
+ Red Orange Yellow Green
+ Red Orange Yellow
+ Red Orange
+ Red
+ Red Orange Yellow Green Blue Purple Red
+ Red Orange Yellow Green Blue Purple Red Orange
+ Red Orange Yellow Green Blue Purple Red Orange Yellow
+ Red Orange Yellow Green Blue Purple Red Orange Yellow Green
+ Red Orange Yellow Green Blue Purple Red Orange Yellow Green Blue
+ Red Orange Yellow Green Blue Purple Red Orange Yellow Green Blue Purple
+ Red Orange Yellow Green Blue Purple Red Orange Yellow Green Blue Purple
+ Red Orange Yellow Green Blue Purple Red Orange Yellow Green Blue
+ Red Orange Yellow Green Blue Purple Red Orange Yellow Green
+ Red Orange Yellow Green Blue Purple Red Orange Yellow
+ Red Orange Yellow Green Blue Purple Red Orange
+ Red Orange Yellow Green Blue Purple Red
