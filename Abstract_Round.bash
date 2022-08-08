@@ -60,12 +60,6 @@ cat <<<"$Runs" >> ${1%%.*}_$(date +'%s').${1#*.}
 
 Abstract () {
 
-#Use Imagination and Mindslness to create something to lift your motivation.
-#When your spirits are high build to Create something for that speaks volumes.
-#Crafted to inspire change you motivation will carry you to the highest level.
-
-
-
         Encode () {
 
         unset {A..Z}{_,} {a..z}
@@ -153,4 +147,3 @@ Compress $@
 Abstract $1.isf
 Abstract $1.ten
 Decompress $1.bak
-$
